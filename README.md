@@ -29,20 +29,18 @@ from `file://` — the FL5 model is fetched in parts (see below).
   See `assets/draco/README.md` for SHA-256. The page fetches
   `draco_wasm_wrapper.js` and `draco_decoder.wasm` (asm.js `draco_decoder.js`
   is the fallback).
-- `assets/model/part-00.bin` … `part-20.bin` — the FL5 GLB split into 1 MiB
-  parts (21 parts, 21,836,152 bytes total). The viewer downloads them and
-  reassembles the file in memory before parsing. The mesh matches the
-  Sketchfab file. The 4096×2048 license-plate baseColor image was repacked
-  from PNG (9,206,501 bytes) to lossless WebP (5,417,220 bytes); a raw RGB
-  compare of the two images matched. No SHA-256 check is implemented.
+- `assets/model/part-00.bin` … `part-24.bin` — the FL5 GLB split into 1 MiB
+  parts (25 parts, 25,625,364 bytes total). The viewer downloads them and
+  reassembles the file in memory byte-for-byte before parsing. The model
+  file is the unmodified Sketchfab GLB, including the original 4096×2048
+  license-plate PNG. A SHA-256 check is not implemented in the page.
 
 ## Credits and licenses
 
 - Honda Civic Type R FL5 "FL5 Custom" model by **blakebella** (Sketchfab),
   CC BY-NC-ND 4.0. Source: https://github.com/Liooo0/lio-fl5-3d
-  Mesh buffers are the source file, split into delivery parts. The
-  license-plate baseColor image is lossless WebP of the original PNG
-  (see above). Honda, Civic, and Type R are trademarks of Honda Motor Co., Ltd.
+  (identical file, unmodified — only split into delivery parts). Honda, Civic,
+  and Type R are trademarks of Honda Motor Co., Ltd.
   Unofficial fan project, not affiliated with or endorsed by Honda.
 - Toyota models come from the author's Toyota showroom project
   (jnibarger01/toyota-showroom); check that repo for their per-model
@@ -51,7 +49,5 @@ from `file://` — the FL5 model is fetched in parts (see below).
 - The viewer code and configuration are the author's own work.
 
 Non-commercial use only for the FL5 model, per its CC BY-NC-ND 4.0 license.
-The delivery parts are not byte-identical to the Sketchfab upload: the only
-change is the lossless WebP repack of the license-plate baseColor image
-described above. Mesh buffers were not recompressed (no Draco). Attribution
-stays in the page credit and in the GLB `asset.extras`.
+Do not redistribute a modified copy of the FL5 GLB. Attribution stays in the
+page credit and in the GLB `asset.extras`.
